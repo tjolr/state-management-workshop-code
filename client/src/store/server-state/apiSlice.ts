@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Comment, Task, User } from "@/types";
+import { createSelector } from "@reduxjs/toolkit";
+import type { Comment, Task, User, TagType, TaskState } from "@/types";
+import { ALL_TAGS, TASK_STATES } from "@/types";
 import type {
   CreateTaskInput,
   UpdateTaskInput,
@@ -159,3 +161,43 @@ export const {
   useAddCommentMutation,
   useDeleteCommentMutation,
 } = apiSlice;
+
+// ── Derived selectors ─────────────────────────────────────────────────
+
+const selectTasksResult = apiSlice.endpoints.getTasks.select();
+const selectTasks = createSelector(
+  selectTasksResult,
+  (result) => result.data ?? [],
+);
+
+const selectByColumn = createSelector(selectTasks, (tasks) => {
+  const counts = {} as Record<TaskState, number>;
+  for (const state of TASK_STATES) counts[state] = 0;
+  for (const task of tasks) {
+    if (counts[task.state] !== undefined) counts[task.state]++;
+  }
+  return counts;
+});
+
+const selectByTag = createSelector(selectTasks, (tasks) => {
+  const counts = {} as Record<TagType, number>;
+  for (const tag of ALL_TAGS) counts[tag] = 0;
+  for (const task of tasks) {
+    for (const tag of task.tags) {
+      if (counts[tag] !== undefined) counts[tag]++;
+    }
+  }
+  return counts;
+});
+
+export const selectTaskStats = createSelector(
+  selectTasks,
+  selectByColumn,
+  selectByTag,
+  (tasks, byColumn, byTag) => {
+    const totalTasks = tasks.length;
+    const completedPercent =
+      totalTasks === 0 ? 0 : Math.round(((byColumn.Done ?? 0) / totalTasks) * 100);
+    return { totalTasks, byColumn, byTag, completedPercent };
+  },
+);
