@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/store";
-import { setTheme as setThemeAction } from "@/store/client-state/themeSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { setTheme as setThemeAction } from "./themeSlice";
 import type { Theme } from "@/types";
 
 function getSystemTheme(): "light" | "dark" {

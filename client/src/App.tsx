@@ -3,7 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { FilterBar } from "@/components/layout/FilterBar";
 import { KanbanBoard } from "@/components/board/KanbanBoard";
 import { TaskDialog } from "@/components/task/TaskDialog";
-import { useTasks } from "@/hooks";
+import { useTasks } from "@/state-management";
 import type { Task, TaskState } from "@/types";
 
 export default function App() {

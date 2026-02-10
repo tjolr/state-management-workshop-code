@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import { useAppDispatch, useAppSelector } from "@/store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import {
   setSortField as setSortFieldAction,
   setSortDirection as setSortDirectionAction,
   toggleSortDirection as toggleSortDirectionAction,
-} from "@/store/client-state/sortingSlice";
+} from "./sortingSlice";
 import type { SortDirection, SortField } from "@/types";
 
 export function useSorting() {

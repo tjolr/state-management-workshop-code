@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { apiSlice } from "./server-state/apiSlice";
-import themeReducer from "./client-state/themeSlice";
-import filterReducer from "./client-state/filterSlice";
-import sortingReducer from "./client-state/sortingSlice";
+import { apiSlice } from "./server-state/api/apiSlice";
+import themeReducer from "./client-state/theme/themeSlice";
+import filterReducer from "./client-state/filters/filterSlice";
+import sortingReducer from "./client-state/sorting/sortingSlice";
 
 export const store = configureStore({
   reducer: {

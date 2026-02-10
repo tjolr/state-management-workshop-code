@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { TagBadge } from "@/components/shared/TagBadge";
 import { SortControl } from "@/components/shared/SortControl";
-import { useFilters } from "@/hooks";
+import { useFilters } from "@/state-management";
 import { ALL_TAGS, TASK_STATES, type TaskState } from "@/types";
 
 const columnLabels: Record<TaskState, string> = {

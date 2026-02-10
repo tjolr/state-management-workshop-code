@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useSorting } from "@/hooks";
+import { useSorting } from "@/state-management";
 import type { SortField } from "@/types";
 
 const sortLabels: Record<SortField, string> = {

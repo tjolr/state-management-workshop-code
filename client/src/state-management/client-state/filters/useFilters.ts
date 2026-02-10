@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { useAppDispatch, useAppSelector } from "@/store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import {
   toggleTag as toggleTagAction,
   collapseColumn as collapseColumnAction,
@@ -7,7 +7,7 @@ import {
   hideColumn as hideColumnAction,
   showColumn as showColumnAction,
   clearFilters as clearFiltersAction,
-} from "@/store/client-state/filterSlice";
+} from "./filterSlice";
 import type { TagType, TaskState } from "@/types";
 
 export function useFilters() {

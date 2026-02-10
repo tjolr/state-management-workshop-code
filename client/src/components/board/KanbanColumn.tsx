@@ -7,7 +7,7 @@ import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TaskCard } from "./TaskCard";
-import { useFilters } from "@/hooks";
+import { useFilters } from "@/state-management";
 import type { Task, TaskState } from "@/types";
 import { cn } from "@/lib/utils";
 

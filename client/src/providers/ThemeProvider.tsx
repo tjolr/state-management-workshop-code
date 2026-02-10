@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useTheme } from "@/hooks";
+import { useTheme } from "@/state-management";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const { resolvedTheme } = useTheme();

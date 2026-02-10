@@ -14,7 +14,7 @@ import {
 import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { KanbanColumn } from "./KanbanColumn";
 import { TaskCardOverlay } from "./TaskCardOverlay";
-import { useTasks, useFilters } from "@/hooks";
+import { useTasks, useFilters } from "@/state-management";
 import { TASK_STATES, type Task, type TaskState } from "@/types";
 
 interface KanbanBoardProps {

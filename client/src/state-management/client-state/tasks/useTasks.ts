@@ -6,10 +6,10 @@ import {
   useDeleteTaskMutation,
   useMoveTaskMutation,
   useReorderTasksMutation,
-} from "@/store/server-state/apiSlice";
+} from "../../server-state/api/apiSlice";
 import type { CreateTaskInput, UpdateTaskInput, ReorderTaskEntry } from "@/types/api";
-import { useFilters } from "@/hooks/useFilters";
-import { useSorting } from "@/hooks/useSorting";
+import { useFilters } from "../filters/useFilters";
+import { useSorting } from "../sorting/useSorting";
 import type { Task, TaskState } from "@/types";
 import { TASK_STATES } from "@/types";
 

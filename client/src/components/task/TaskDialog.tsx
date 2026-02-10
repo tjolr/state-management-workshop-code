@@ -19,12 +19,12 @@ import {
 import { TagBadge } from "@/components/shared/TagBadge";
 import { UserAvatar } from "@/components/shared/UserAvatar";
 import { TaskDetail } from "./TaskDetail";
-import { useTasks } from "@/hooks";
 import {
+  useTasks,
   useGetUsersQuery,
   useAddCommentMutation,
   useDeleteCommentMutation,
-} from "@/store/server-state/apiSlice";
+} from "@/state-management";
 import {
   ALL_TAGS,
   TASK_STATES,
